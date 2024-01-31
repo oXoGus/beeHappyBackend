@@ -1,8 +1,8 @@
 const express = require("express")
 const router = express.Router() // on cherche l'url sur laquelle on est pour traitée les data
 
-router.get("/", (req, res) => {
-    res.status(200).json({message: "test"})
+router.post("/", (req, res) => {
+    res.status(200).json({message: "battery"})// on revoie un json contenant les datas
 })
 
 
