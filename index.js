@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended : false})) // permet de lire des requetes 
 // get c'est pour réceptionnée le requete de l'utilisateur et lui renvoyer des données
 
 app.get("/", (req, res) => { // on envoie a le la page a la base de notre sereur avec "/" : Hello, world! req : ce que le serv recoit / res : ce que le serv envoie 
+    
     res.json({"message" : "Hello, world!"})
 })
 
@@ -26,6 +27,17 @@ app.use("/post/weight", weight)// quand on est sur url/user on utilise le code d
 
 const battery = require("./post.routes/battery") 
 app.use("/post/battery", battery)// quand on est sur url/user on utilise le code de ./routes/user
+
+
+const getCoords = require("./get.routes/coords") 
+app.use("/get/coords", getCoords)// quand on est sur url/user on utilise le code de ./routes/user
+
+const getWeight = require("./get.routes/weight") 
+app.use("/get/weight", getWeight)// quand on est sur url/user on utilise le code de ./routes/user
+
+const getBattery = require("./get.routes/battery") 
+app.use("/get/battery", getBattery)// quand on est sur url/user on utilise le code de ./routes/user
+
 
 app.listen(port, () => {console.log("le serveur est en ligne !")}) // on demare le serveur sur le port et on envoie un message dans les log
 
