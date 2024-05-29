@@ -16,18 +16,17 @@ app.use(express.urlencoded({ extended : false})) // permet de lire des requetes 
 
 app.get("/", (req, res) => { // on envoie a le la page a la base de notre sereur avec "/" : Hello, world! req : ce que le serv recoit / res : ce que le serv envoie 
     
-    res.json({"message" : "Hello, world!"})
+    res.json({"message" : "Hello world!"})
 })
 
-const coords = require("./post.routes/coords") 
-app.use("/post/coords", coords)// quand on est sur url/user on utilise le code de ./routes/user
+const decodeToken = require("./get.routes/decodeToken")
+app.use("/decodetoken", decodeToken)
 
-const weight = require("./post.routes/weight") 
-app.use("/post/weight", weight)// quand on est sur url/user on utilise le code de ./routes/user
+const login = require("./post.routes/login")
+app.use("/login", login)
 
-const battery = require("./post.routes/battery") 
-app.use("/post/battery", battery)// quand on est sur url/user on utilise le code de ./routes/user
-
+const register = require("./post.routes/register")
+app.use("/register", register)
 
 const getCoords = require("./get.routes/coords") 
 app.use("/get/coords", getCoords)// quand on est sur url/user on utilise le code de ./routes/user
