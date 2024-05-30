@@ -1,5 +1,6 @@
 const express = require("express")
 const mysql = require("mysql")
+//const checkTokenMidleware = require("jsonWebToken/check.js")
 const port = process.env.PORT || 5000 // met le port a 5000 si il ne trouve pas de variable globale sur la machine 
 
 
@@ -7,11 +8,10 @@ const port = process.env.PORT || 5000 // met le port a 5000 si il ne trouve pas 
 const app = express() // on intancie l'app 
 
 
-//const checkTokenMiddleware = require('jsonwebtoken/check.js')
+
 
 // Middleware qui permat de traiter les données de la requete du client
 app.use(express.json())
-app.use(express.urlencoded({ extended : false})) // permet de lire des requetes en urlencoded pour postaman
 
 
 // get c'est pour réceptionnée le requete de l'utilisateur et lui renvoyer des données
